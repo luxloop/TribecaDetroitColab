@@ -47,17 +47,11 @@ class ViewController: UIViewController {
     Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
   }
   
+  deinit {
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+  }
   
   func update() {
-    //print(tracker.frequency)
-    //if tracker.amplitude > 0.1 {
-    
-//    let max = fft.fftData.max()!
-//    if let index = fft.fftData.index(of: max) {
-//      if index > 80 {
-//        print("FFT: max: \(max) at index: \(index) of \(fft.fftData.count)");
-//      }
-//    }
     
     
     if tracker.frequency > 12000 {
@@ -84,26 +78,6 @@ class ViewController: UIViewController {
   }
   
   func setupVideo() {
-    //let videoView = UIView(frame: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.width, self.view.bounds.height))
-    //let videoView = UIView(frame: vidContainer.frame)
-    
-//    let pathToEx1 = Bundle.main.path(forResource: "Videos/gwcTest", ofType: "mov")
-//    let pathURL = NSURL.fileURL(withPath: pathToEx1!)
-//    moviePlayer = MPMoviePlayerController(contentURL: pathURL)
-//    
-//    if let player = moviePlayer {
-//      player.view.frame = vidContainer.bounds
-//      player.prepareToPlay()
-//      player.controlStyle = .none
-//      player.scalingMode = .aspectFill
-//      //videoView.addSubview(player.view)
-//      vidContainer.addSubview(player.view)
-//    }
-//    
-//    //self.view.addSubview(videoView)
-    
-    
-//    var avvc:AVPlayerViewController?
     
     let pathToEx1 = Bundle.main.path(forResource: "Videos/gwcTest", ofType: "mov")
     let pathURL = NSURL.fileURL(withPath: pathToEx1!)
@@ -113,17 +87,23 @@ class ViewController: UIViewController {
     vidContainer.layer.addSublayer(movLayer)
     movLayer.frame = vidContainer.bounds
     movLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+    
+    //NotificationCenter.default.addObserver(self, selector: "playerDidFinishPlaying:",name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: movPlayer?.currentItem)
+    
+    //NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { _ in playerDidFinishPlaying }
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+
 
     movPlayer?.volume = 0;
     //movPlayer?.play()
     
-    if let asset = movPlayer?.currentItem?.asset as? AVURLAsset {
-      var filename = asset.url.lastPathComponent.characters.split{$0 == "."}.map(String.init)
-      print(filename[0])
+    if let name = getCurrentVideoName() {
+      print(name)
     }
     
     vidContainer.alpha = 0.0;
-    playCurrentVideo()
+    //playCurrentVideo()
     //cueAndPlayVideo(fileName: "plantTest")
   }
   
@@ -135,6 +115,24 @@ class ViewController: UIViewController {
   func stopVideo() {
     vidContainer.alpha = 0.0;
     movPlayer?.pause()
+  }
+  
+  func playerDidFinishPlaying(note: Notification) {
+    //print("Video Finished - \(note.object)")
+    if let currentItem = note.object as? AVPlayerItem,
+    let asset = currentItem.asset as? AVURLAsset {
+      var filename = asset.url.lastPathComponent.characters.split{$0 == "."}.map(String.init)
+      print(filename[0]);
+    }
+    stopVideo()
+  }
+  
+  func getCurrentVideoName() -> String? {
+    if let asset = movPlayer?.currentItem?.asset as? AVURLAsset {
+      var filename = asset.url.lastPathComponent.characters.split{$0 == "."}.map(String.init)
+      return filename[0]
+    }
+    return nil
   }
   
   func cueAndPlayVideo(fileName: String) {
