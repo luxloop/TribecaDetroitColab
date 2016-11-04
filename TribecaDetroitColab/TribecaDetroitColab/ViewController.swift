@@ -9,6 +9,7 @@
 import UIKit
 import AudioKit
 import MediaPlayer
+import AVKit
 
 class ViewController: UIViewController {
   
@@ -20,8 +21,10 @@ class ViewController: UIViewController {
   var silence: AKBooster!
 //  var fft: AKFFTTap!
   
-  var moviePlayer:MPMoviePlayerController?
+  //var moviePlayer:MPMoviePlayerController?
 
+  var movPlayer:AVPlayer?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,7 +35,7 @@ class ViewController: UIViewController {
     silence = AKBooster(tracker, gain: 0)
 //    fft = AKFFTTap(mic)
     
-    //setupVideo()
+    setupVideo()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +70,7 @@ class ViewController: UIViewController {
         colorBox.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
       } else if tracker.frequency > 16900 {
         colorBox.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
-        setupVideo()
+        //setupVideo()
       } else if tracker.frequency > 16400 {
         colorBox.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
       } else if tracker.frequency > 15900 {
@@ -84,20 +87,67 @@ class ViewController: UIViewController {
     //let videoView = UIView(frame: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.width, self.view.bounds.height))
     //let videoView = UIView(frame: vidContainer.frame)
     
+//    let pathToEx1 = Bundle.main.path(forResource: "Videos/gwcTest", ofType: "mov")
+//    let pathURL = NSURL.fileURL(withPath: pathToEx1!)
+//    moviePlayer = MPMoviePlayerController(contentURL: pathURL)
+//    
+//    if let player = moviePlayer {
+//      player.view.frame = vidContainer.bounds
+//      player.prepareToPlay()
+//      player.controlStyle = .none
+//      player.scalingMode = .aspectFill
+//      //videoView.addSubview(player.view)
+//      vidContainer.addSubview(player.view)
+//    }
+//    
+//    //self.view.addSubview(videoView)
+    
+    
+//    var avvc:AVPlayerViewController?
+    
     let pathToEx1 = Bundle.main.path(forResource: "Videos/gwcTest", ofType: "mov")
     let pathURL = NSURL.fileURL(withPath: pathToEx1!)
-    moviePlayer = MPMoviePlayerController(contentURL: pathURL)
     
-    if let player = moviePlayer {
-      player.view.frame = vidContainer.bounds
-      player.prepareToPlay()
-      player.controlStyle = .none
-      player.scalingMode = .aspectFill
-      //videoView.addSubview(player.view)
-      vidContainer.addSubview(player.view)
+    movPlayer = AVPlayer(url:pathURL)
+    let movLayer = AVPlayerLayer(player: movPlayer)
+    vidContainer.layer.addSublayer(movLayer)
+    movLayer.frame = vidContainer.bounds
+    movLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+
+    movPlayer?.volume = 0;
+    //movPlayer?.play()
+    
+    if let asset = movPlayer?.currentItem?.asset as? AVURLAsset {
+      var filename = asset.url.lastPathComponent.characters.split{$0 == "."}.map(String.init)
+      print(filename[0])
     }
     
-    //self.view.addSubview(videoView)
+    vidContainer.alpha = 0.0;
+    playCurrentVideo()
+    //cueAndPlayVideo(fileName: "plantTest")
+  }
+  
+  func playCurrentVideo() {
+    vidContainer.alpha = 1.0;
+    movPlayer?.play()
+  }
+  
+  func stopVideo() {
+    vidContainer.alpha = 0.0;
+    movPlayer?.pause()
+  }
+  
+  func cueAndPlayVideo(fileName: String) {
+    let pathToEx1 = Bundle.main.path(forResource: "Videos/\(fileName)", ofType: "mov")
+    let pathURL = NSURL.fileURL(withPath: pathToEx1!)
+    let asset = AVAsset(url: pathURL)
+    //let assetKeys = [ "playable" ]
+    let playerItem = AVPlayerItem(asset: asset)
+    movPlayer?.pause()
+    movPlayer?.replaceCurrentItem(with: playerItem);
+    movPlayer?.volume = 0;
+    vidContainer.alpha = 1.0;
+    movPlayer?.play()
   }
 
   override func didReceiveMemoryWarning() {
