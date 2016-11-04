@@ -8,17 +8,19 @@
 
 import UIKit
 import AudioKit
+import MediaPlayer
 
 class ViewController: UIViewController {
   
   @IBOutlet weak var colorBox: UIView!
+  @IBOutlet weak var vidContainer: UIView!
   
   var mic: AKMicrophone!
   var tracker: AKFrequencyTracker!
   var silence: AKBooster!
 //  var fft: AKFFTTap!
   
-  
+  var moviePlayer:MPMoviePlayerController?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,6 +31,8 @@ class ViewController: UIViewController {
     tracker = AKFrequencyTracker.init(mic, hopSize:64, peakCount:100)
     silence = AKBooster(tracker, gain: 0)
 //    fft = AKFFTTap(mic)
+    
+    //setupVideo()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +67,7 @@ class ViewController: UIViewController {
         colorBox.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
       } else if tracker.frequency > 16900 {
         colorBox.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+        setupVideo()
       } else if tracker.frequency > 16400 {
         colorBox.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
       } else if tracker.frequency > 15900 {
@@ -73,6 +78,26 @@ class ViewController: UIViewController {
         colorBox.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
       }
     }
+  }
+  
+  func setupVideo() {
+    //let videoView = UIView(frame: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.width, self.view.bounds.height))
+    //let videoView = UIView(frame: vidContainer.frame)
+    
+    let pathToEx1 = Bundle.main.path(forResource: "Videos/gwcTest", ofType: "mov")
+    let pathURL = NSURL.fileURL(withPath: pathToEx1!)
+    moviePlayer = MPMoviePlayerController(contentURL: pathURL)
+    
+    if let player = moviePlayer {
+      player.view.frame = vidContainer.bounds
+      player.prepareToPlay()
+      player.controlStyle = .none
+      player.scalingMode = .aspectFill
+      //videoView.addSubview(player.view)
+      vidContainer.addSubview(player.view)
+    }
+    
+    //self.view.addSubview(videoView)
   }
 
   override func didReceiveMemoryWarning() {

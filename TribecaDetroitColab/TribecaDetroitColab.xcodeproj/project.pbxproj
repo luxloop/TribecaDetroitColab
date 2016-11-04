@@ -14,6 +14,7 @@
 		F9A713F91DCCD24600ED7D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A713F71DCCD24600ED7D35 /* LaunchScreen.storyboard */; };
 		F9A714051DCCD45700ED7D35 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A714001DCCD43500ED7D35 /* AudioKit.framework */; };
 		F9A714061DCCD45700ED7D35 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9A714001DCCD43500ED7D35 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F9A7140A1DCCFBF900ED7D35 /* Videos in Resources */ = {isa = PBXBuildFile; fileRef = F9A714091DCCFBF900ED7D35 /* Videos */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		F9A713F81DCCD24600ED7D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9A713FA1DCCD24600ED7D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A714001DCCD43500ED7D35 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		F9A714091DCCFBF900ED7D35 /* Videos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Videos; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				F9A713F51DCCD24600ED7D35 /* Assets.xcassets */,
 				F9A713F71DCCD24600ED7D35 /* LaunchScreen.storyboard */,
 				F9A713FA1DCCD24600ED7D35 /* Info.plist */,
+				F9A714091DCCFBF900ED7D35 /* Videos */,
 				F9A714001DCCD43500ED7D35 /* AudioKit.framework */,
 			);
 			path = TribecaDetroitColab;
@@ -144,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9A7140A1DCCFBF900ED7D35 /* Videos in Resources */,
 				F9A713F91DCCD24600ED7D35 /* LaunchScreen.storyboard in Resources */,
 				F9A713F61DCCD24600ED7D35 /* Assets.xcassets in Resources */,
 				F9A713F41DCCD24600ED7D35 /* Main.storyboard in Resources */,

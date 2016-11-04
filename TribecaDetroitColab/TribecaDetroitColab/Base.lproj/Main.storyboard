@@ -23,7 +23,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9k-Nu-V7t">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCb-b5-A0C">
+                                        <rect key="frame" x="50" y="40" width="567" height="295"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="PCb-b5-A0C" firstAttribute="leading" secondItem="i9k-Nu-V7t" secondAttribute="leading" constant="50" id="1WW-w5-Pca"/>
+                                    <constraint firstAttribute="trailing" secondItem="PCb-b5-A0C" secondAttribute="trailing" constant="50" id="F8n-f6-Ipf"/>
+                                    <constraint firstAttribute="bottom" secondItem="PCb-b5-A0C" secondAttribute="bottom" constant="40" id="gvk-6J-vBI"/>
+                                    <constraint firstItem="PCb-b5-A0C" firstAttribute="top" secondItem="i9k-Nu-V7t" secondAttribute="top" constant="40" id="njr-wy-4lH"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,11 +48,12 @@
                     </view>
                     <connections>
                         <outlet property="colorBox" destination="i9k-Nu-V7t" id="0gB-y1-c9W"/>
+                        <outlet property="vidContainer" destination="PCb-b5-A0C" id="P7b-MV-Qz5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="118.29085457271366"/>
+            <point key="canvasLocation" x="136.28185907046478" y="117.59999999999999"/>
         </scene>
     </scenes>
 </document>
