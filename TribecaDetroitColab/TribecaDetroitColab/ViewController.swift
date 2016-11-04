@@ -16,7 +16,7 @@ class ViewController: UIViewController {
   var mic: AKMicrophone!
   var tracker: AKFrequencyTracker!
   var silence: AKBooster!
-  var fft: AKFFTTap!
+//  var fft: AKFFTTap!
   
   
 
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     mic = AKMicrophone()
     tracker = AKFrequencyTracker.init(mic, hopSize:64, peakCount:100)
     silence = AKBooster(tracker, gain: 0)
-    fft = AKFFTTap(mic)
+//    fft = AKFFTTap(mic)
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -45,12 +45,12 @@ class ViewController: UIViewController {
     //print(tracker.frequency)
     //if tracker.amplitude > 0.1 {
     
-    let max = fft.fftData.max()!
-    if let index = fft.fftData.index(of: max) {
-      if index > 80 {
-        print("FFT: max: \(max) at index: \(index) of \(fft.fftData.count)");
-      }
-    }
+//    let max = fft.fftData.max()!
+//    if let index = fft.fftData.index(of: max) {
+//      if index > 80 {
+//        print("FFT: max: \(max) at index: \(index) of \(fft.fftData.count)");
+//      }
+//    }
     
     
     if tracker.frequency > 12000 {
