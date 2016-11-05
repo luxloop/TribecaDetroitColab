@@ -29,4 +29,4 @@ Through both content and application (theory and practice), Plant Based Detroit 
 
 Plant Based Detroit was developed at the Tribeca Co/Lab Detroit Hackathon, November 2016.
 
-Team members: [Ash Arder](http://asharder.com/about/), [Ivaylo Getov](http://ivaylogetov.com), [Mina Rafiee](http://www.minarafiee.com/), [David Schümudde]()
+Team members: [Ash Arder](http://asharder.com/about/), [Ivaylo Getov](http://ivaylogetov.com), [Mina Rafiee](http://www.minarafiee.com/), [David Schümudde](http://schmud.de/)
