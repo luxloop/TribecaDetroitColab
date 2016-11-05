@@ -6,8 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="CarbonBlock.ttf">
+            <string>CarbonBlock</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -21,33 +27,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9k-Nu-V7t">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCb-b5-A0C">
-                                        <rect key="frame" x="50" y="40" width="567" height="295"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="24v-bf-qtE">
+                                <rect key="frame" x="0.0" y="20" width="667" height="355"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Based Detroit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9h-ay-eFB">
+                                <rect key="frame" x="106" y="120" width="455" height="64"/>
+                                <fontDescription key="fontDescription" name="CarbonBlock" family="Carbon Block" pointSize="65"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="let your device catch the vibes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-Fg-6Av">
+                                <rect key="frame" x="223" y="204" width="221.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="CarbonBlock" family="Carbon Block" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCb-b5-A0C">
+                                <rect key="frame" x="50" y="40" width="567" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="PCb-b5-A0C" firstAttribute="leading" secondItem="i9k-Nu-V7t" secondAttribute="leading" constant="50" id="1WW-w5-Pca"/>
-                                    <constraint firstAttribute="trailing" secondItem="PCb-b5-A0C" secondAttribute="trailing" constant="50" id="F8n-f6-Ipf"/>
-                                    <constraint firstAttribute="bottom" secondItem="PCb-b5-A0C" secondAttribute="bottom" constant="40" id="gvk-6J-vBI"/>
-                                    <constraint firstItem="PCb-b5-A0C" firstAttribute="top" secondItem="i9k-Nu-V7t" secondAttribute="top" constant="40" id="njr-wy-4lH"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="i9k-Nu-V7t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0ss-MX-fz6"/>
-                            <constraint firstAttribute="trailing" secondItem="i9k-Nu-V7t" secondAttribute="trailing" id="QlD-W1-msz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i9k-Nu-V7t" secondAttribute="bottom" id="VEQ-lX-zzD"/>
-                            <constraint firstItem="i9k-Nu-V7t" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dVY-Mx-tN5"/>
+                            <constraint firstItem="mLd-Fg-6Av" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GQG-RJ-GWE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="24v-bf-qtE" secondAttribute="trailing" constant="-20" id="Kym-76-mFD"/>
+                            <constraint firstItem="mLd-Fg-6Av" firstAttribute="top" secondItem="h9h-ay-eFB" secondAttribute="bottom" constant="20" id="Ogc-wy-rNG"/>
+                            <constraint firstItem="24v-bf-qtE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="RXN-7R-DWs"/>
+                            <constraint firstItem="h9h-ay-eFB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bNo-ce-ecc"/>
+                            <constraint firstItem="24v-bf-qtE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="dGM-IV-aFM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="24v-bf-qtE" secondAttribute="bottom" id="tQ1-Bp-6fh"/>
+                            <constraint firstItem="h9h-ay-eFB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wa0-kr-Arg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="colorBox" destination="i9k-Nu-V7t" id="0gB-y1-c9W"/>
                         <outlet property="vidContainer" destination="PCb-b5-A0C" id="P7b-MV-Qz5"/>
                     </connections>
                 </viewController>
@@ -56,4 +69,7 @@
             <point key="canvasLocation" x="136.28185907046478" y="117.59999999999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="512" height="384"/>
+    </resources>
 </document>
