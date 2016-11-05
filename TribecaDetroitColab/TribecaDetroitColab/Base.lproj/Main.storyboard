@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="let your device catch the vibes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-Fg-6Av">
-                                <rect key="frame" x="190" y="204" width="288" height="25.5"/>
+                                <rect key="frame" x="189.5" y="204" width="288" height="26"/>
                                 <fontDescription key="fontDescription" name="CarbonBlock" family="Carbon Block" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +60,9 @@
                             <constraint firstItem="24v-bf-qtE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="dGM-IV-aFM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PCb-b5-A0C" secondAttribute="bottom" constant="40" id="pTz-tB-XaL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="24v-bf-qtE" secondAttribute="bottom" id="tQ1-Bp-6fh"/>
-                            <constraint firstItem="h9h-ay-eFB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wa0-kr-Arg"/>
+                            <constraint firstItem="h9h-ay-eFB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wa0-kr-Arg">
+                                <variation key="heightClass=regular" constant="300"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <connections>
