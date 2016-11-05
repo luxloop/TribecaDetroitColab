@@ -34,8 +34,10 @@ class ViewController: UIViewController {
   
   let startSignal:Double = 17500
   let signalOptions:[(freq:Double,file:String)] =
-    [(17300,"plantTest"),
-     (17100,"gwcTest")]
+    [(16750,"plantTest"),
+     (16500,"plantTest"),
+     (16250,"plantTest"),
+     (16000,"gwcTest")]
   
   func changeAudioMode() {
     do {
@@ -66,11 +68,13 @@ class ViewController: UIViewController {
     silence = AKBooster(tracker, gain: 0)
 //    fft = AKFFTTap(mic)
     
-    setupVideo()
+    
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    
+    setupVideo()
     
     AudioKit.output = silence
     AudioKit.start()
@@ -168,6 +172,7 @@ class ViewController: UIViewController {
     let movLayer = AVPlayerLayer(player: movPlayer)
     vidContainer.layer.addSublayer(movLayer)
     movLayer.frame = vidContainer.bounds
+    
     movLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
     
     //NotificationCenter.default.addObserver(self, selector: "playerDidFinishPlaying:",name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: movPlayer?.currentItem)
