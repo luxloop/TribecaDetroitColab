@@ -1,4 +1,6 @@
-![cover](pbd.jpg)
+<p align="center">
+  <img src="pbd.jpg" />
+</p>
 
 # Plant Based Detroit
 A resurgence in analog music experiences has resulted in the creation of new vinyl records and cassette tapes. unfortunately, these objects are still being created with oil-based plastics that further deplete the planet's natural resources and create toxic waste when discarded. Bio-based polymers are natural and biodegradable. They have replaced synthetic plastics in much of the food and retail industries, and it's time for the music industry to catch up. Plant-based Detroit supports the Plantalogue movement as a platform for its sonic experimentation.
