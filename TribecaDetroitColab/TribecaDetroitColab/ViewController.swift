@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     AKSettings.audioInputEnabled = true
     AKSettings.sampleRate = 96000
     mic = AKMicrophone()
-    tracker = AKFrequencyTracker.init(mic, hopSize:32, peakCount:2)
+    tracker = AKFrequencyTracker.init(mic, hopSize:256, peakCount:10)
     silence = AKBooster(tracker, gain: 0)
 //    fft = AKFFTTap(mic)
     
@@ -190,13 +190,15 @@ class ViewController: UIViewController {
   }
   
   func playCurrentVideo() {
-    vidContainer.alpha = 1.0;
+    //vidContainer.alpha = 1.0;
+    fadeVideoUp()
     movPlayer?.play()
     //changeAudioMode()
   }
   
   func stopVideo() {
-    vidContainer.alpha = 0.0;
+    //vidContainer.alpha = 0.0;
+    fadeVideoDown()
     movPlayer?.pause()
     //changeAudioMode()
   }
@@ -227,11 +229,20 @@ class ViewController: UIViewController {
     //let assetKeys = [ "playable" ]
     let playerItem = AVPlayerItem(asset: asset)
     movPlayer?.pause()
-    movPlayer?.replaceCurrentItem(with: playerItem);
-    movPlayer?.volume = 0;
-    vidContainer.alpha = 1.0;
+    movPlayer?.replaceCurrentItem(with: playerItem)
+    movPlayer?.volume = 0
+    //vidContainer.alpha = 1.0;
+    fadeVideoUp()
     movPlayer?.play()
     //AudioKit.start()
+  }
+  
+  func fadeVideoDown() {
+    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { self.vidContainer.alpha = 0.0; }, completion: nil)
+  }
+  
+  func fadeVideoUp() {
+    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { self.vidContainer.alpha = 1.0; }, completion: nil)
   }
 
   override func didReceiveMemoryWarning() {
