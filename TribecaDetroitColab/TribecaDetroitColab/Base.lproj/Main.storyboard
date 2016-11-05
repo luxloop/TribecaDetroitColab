@@ -27,9 +27,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="24v-bf-qtE">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="24v-bf-qtE">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqt-nB-ye2">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Based Detroit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9h-ay-eFB">
                                 <rect key="frame" x="106" y="120" width="455" height="64"/>
                                 <fontDescription key="fontDescription" name="CarbonBlock" family="Carbon Block" pointSize="65"/>
@@ -50,7 +54,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PCb-b5-A0C" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="5He-96-t5C"/>
+                            <constraint firstItem="gqt-nB-ye2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cug-lM-qnY"/>
                             <constraint firstItem="mLd-Fg-6Av" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GQG-RJ-GWE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gqt-nB-ye2" secondAttribute="bottom" id="KFd-47-2Cm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="24v-bf-qtE" secondAttribute="trailing" constant="-20" id="Kym-76-mFD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PCb-b5-A0C" secondAttribute="trailing" constant="30" id="McZ-va-KbZ"/>
                             <constraint firstItem="PCb-b5-A0C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="NcW-8I-TV4"/>
@@ -59,6 +65,8 @@
                             <constraint firstItem="h9h-ay-eFB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bNo-ce-ecc"/>
                             <constraint firstItem="24v-bf-qtE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="dGM-IV-aFM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PCb-b5-A0C" secondAttribute="bottom" constant="40" id="pTz-tB-XaL"/>
+                            <constraint firstAttribute="trailing" secondItem="gqt-nB-ye2" secondAttribute="trailing" id="sDW-6M-WQb"/>
+                            <constraint firstItem="gqt-nB-ye2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tJB-qF-d2S"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="24v-bf-qtE" secondAttribute="bottom" id="tQ1-Bp-6fh"/>
                             <constraint firstItem="h9h-ay-eFB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wa0-kr-Arg">
                                 <variation key="heightClass=regular" constant="300"/>
@@ -66,6 +74,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundVidContainer" destination="gqt-nB-ye2" id="2iC-WG-Yws"/>
                         <outlet property="vidContainer" destination="PCb-b5-A0C" id="P7b-MV-Qz5"/>
                     </connections>
                 </viewController>
