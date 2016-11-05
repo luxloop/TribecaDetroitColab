@@ -37,8 +37,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="let your device catch the vibes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-Fg-6Av">
-                                <rect key="frame" x="223" y="204" width="222" height="20"/>
-                                <fontDescription key="fontDescription" name="CarbonBlock" family="Carbon Block" pointSize="20"/>
+                                <rect key="frame" x="190" y="204" width="288" height="25.5"/>
+                                <fontDescription key="fontDescription" name="CarbonBlock" family="Carbon Block" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
