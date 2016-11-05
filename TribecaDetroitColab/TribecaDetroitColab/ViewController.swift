@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     AKSettings.audioInputEnabled = true
     AKSettings.sampleRate = 96000
     mic = AKMicrophone()
-    tracker = AKFrequencyTracker.init(mic, hopSize:256, peakCount:10)
+    tracker = AKFrequencyTracker.init(mic, hopSize:64, peakCount:4)
     silence = AKBooster(tracker, gain: 0)
 //    fft = AKFFTTap(mic)
     
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
     if tracker.frequency > 14000 {
       print(tracker.frequency);
       
-      if isMatch(input: tracker.frequency, reference: startSignal) {
+      if !listenForCode && isMatch(input: tracker.frequency, reference: startSignal) {
         print("Start Listen")
         listenForCode = true;
         counter = 0
